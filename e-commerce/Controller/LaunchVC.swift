@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LaunchVC: UIViewController {
 
+    @IBOutlet weak var startBtn: GradientBtn!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
     }
 
-
+    @IBAction func startBtnPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
-

@@ -10,21 +10,34 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    //MARK: IBOutlets
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var numberTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
+    //MARK: VIEWCONTROLLER
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        numberTF.keyboardType = .numberPad
+        passwordTF.isSecureTextEntry = true
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: ACTION BUTTONS
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
 
+    @IBAction func forgotBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func signupBtnPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SignupVC")
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
